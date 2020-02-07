@@ -4,8 +4,6 @@ import (
 	"reflect"
 	"unsafe"
 
-	"github.com/spf13/cobra"
-
 	"github.com/SkycoinProject/skycoin/src/cipher"
 	httphelper "github.com/SkycoinProject/skycoin/src/util/http"
 )
@@ -22,6 +20,7 @@ import (
 */
 import "C"
 
+// nolint unused
 const (
 	SizeofRipemd160         = unsafe.Sizeof(C.cipher__Ripemd160{})
 	SizeOfAddress           = unsafe.Sizeof(C.cipher__Address{})
@@ -35,6 +34,7 @@ const (
 	SizeofTransaction       = unsafe.Sizeof(C.coin__Transaction{})
 	SizeofEntry             = unsafe.Sizeof(C.wallet__Entry{})
 	SizeofUxBalance         = unsafe.Sizeof(C.transaction__UxBalance{})
+	SizeofUxArray           = unsafe.Sizeof(C.coin__UxArray{})
 )
 
 /**
@@ -47,11 +47,6 @@ func inplaceAddress(p *C.cipher__Address) *cipher.Address {
 
 func inplaceHttpHelperAddress(p *C.httphelper__Address) *httphelper.Address {
 	return (*httphelper.Address)(unsafe.Pointer(p))
-}
-
-func inplaceCobraCommand(p interface{}) (cmd *cobra.Command, isInstance bool) {
-	cmd, isInstance = p.(*cobra.Command)
-	return
 }
 
 /**
@@ -126,11 +121,12 @@ func copyToGoSlice(src reflect.Value, dest *C.GoSlice_) {
 	}
 }
 
+// nolint unused
 func copyToStringMap(gomap map[string]string, dest *C.GoStringMap_) {
 	*dest = (C.GoStringMap_)(registerHandle(gomap))
 }
 
-func copyTocoin_UxArray(src reflect.Value, dest *C.coin__UxArray) {
+func copyTocoin__UxArray(src reflect.Value, dest *C.coin__UxArray) {
 	srcLen := src.Len()
 	if srcLen == 0 {
 		dest.len = 0

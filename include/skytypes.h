@@ -166,11 +166,6 @@ typedef GoUint8_ poly1305__Key[32];
 typedef GoInt64_ Handle;
 
 /**
- * Webrpc Client Handle
- */
-typedef Handle WebRpcClient__Handle;
-
-/**
  * Wallet Handle
  */
 typedef Handle Wallet__Handle;
@@ -225,17 +220,6 @@ typedef Handle GoStringMap_;
  * Wallets Handle, slice of Wallet
  */
 typedef Handle Wallets__Handle;
-
-/**
- *  ReadableOutputSet Handle
- * */
-typedef Handle ReadableOutputSet_Handle;
-
-/**
- *  CreateTransactionParams wallet.CreateTransactionParams
- */
-typedef Handle CreateTransactionParams__Handle;
-
 
 /**
  * CollectionWallets Handle, slice of Wallet
@@ -305,26 +289,6 @@ typedef Handle GetOutputser__Handle;
 typedef Handle PasswordReader__Handle;
 
 /**
- * Memory handle to perform Skycoin RPC API calls
- * encrypted wallets.
- */
-typedef Handle WebRpcClient__Handle;
-
-/**
- * Memory handle providing access to wallet data
- */
-typedef Handle Wallet__Handle;
-
-/**
- * Memory handle Options Handle
- */
-typedef Handle Options__Handle;
-
-/**
- * Memory handle to access to Skycoin CLI configuration
- */
-typedef Handle Config__Handle;
-/**
  * Memory handle to access to coin.Transaction
  */
 typedef Handle Transaction__Handle;
@@ -377,88 +341,72 @@ typedef Handle BlockHeader__Handle;
  * Memory handle to access to cli.BalanceResult
  */
 
-typedef Handle BalanceResult_Handle;
+typedef Handle BalanceResult__Handle;
 
 /**
- * Memory handle to access to api.SpendResult
+ * Memory handle to access to cli.TxnResult
  */
 
-typedef Handle SpendResult_Handle;
-
-/**
- * Memory handle to access to coin.Transactions
- */
-
-typedef Handle TransactionResult_Handle;
+typedef Handle TransactionResult__Handle;
 
 /**
  * Memory handle to access to coin.SortableTransactions
  */
 
-typedef Handle SortableTransactions_Handle;
-
-/**
- * Memory handle to access to wallet.Notes
- */
-
-/**
- * Memory handle to access to wallet.ReadableNotes
- */
-
-typedef Handle WalletReadableNotes_Handle;
+typedef Handle SortableTransactions__Handle;
 
 /**
  * Memory handle to access to webrpc.OutputsResult
  */
 
-typedef Handle OutputsResult_Handle;
+typedef Handle OutputsResult__Handle;
 
 /**
- * Memory handle to access to webrpc.StatusResult
+ * Memory handle to access to cli.StatusResult
  */
 
-typedef Handle StatusResult_Handle;
+typedef Handle StatusResult__Handle;
 
 /**
  * Memory handle to access to coin.AddressUxOuts
  */
 
-typedef Handle AddressUxOuts_Handle;
+typedef Handle AddressUxOuts__Handle;
 
 /**
  * Memory handle to access to readable.BuildInfo (BuildInfo)
  */
 
-typedef Handle BuildInfo_Handle;
+typedef Handle BuildInfo__Handle;
 
 /**
  * Memory handle to access to readable.UnspentOutputsSummary
  * (UnspentOutputsSummary)
  */
 
-typedef Handle ReadableUnspentOutputsSummary_Handle;
+typedef Handle ReadableUnspentOutputsSummary__Handle;
 
 /**
  * Memory handle for hash (ripemd160.digest)
  */
 
-typedef Handle Hash_Handle;
+typedef Handle Hash__Handle;
 
-/**
- * Handle for Number type
- */
-
-typedef Handle Number_Handle;
-
-/**
- * Handle for Signature type
- */
-
-typedef Handle Signature_Handle;
 /**
  * Handle for readable.UnspentOutputsSummary
  * */
-typedef Handle UnspentOutputsSummary_Handle;
+typedef Handle UnspentOutputsSummary__Handle;
+
+/**
+ * Handle for coin.SortableTransactions
+ * */
+typedef Handle SortableTransactions__Handle;
+
+/**
+ * Handle for cipher.Addresser
+ * */
+
+typedef Handle Addresser__Handle;
 
 typedef GoUint32_ (*FeeCalcFunc)(Transaction__Handle handle, GoUint64_* pFee, void* context);
 

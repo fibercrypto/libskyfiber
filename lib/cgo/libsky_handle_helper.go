@@ -1,15 +1,5 @@
 package main
 
-/*
-
-  #include <string.h>
-  #include <stdlib.h>
-
-
-  #include "skytypes.h"
-*/
-import "C"
-
 import (
 	"encoding/json"
 	"path/filepath"
@@ -18,6 +8,17 @@ import (
 	"github.com/SkycoinProject/skycoin/src/daemon"
 	"github.com/SkycoinProject/skycoin/src/readable"
 )
+
+/*
+
+  #include <string.h>
+  #include <stdlib.h>
+
+
+  #include "skytypes.h"
+  #include "skyfee.h"
+*/
+import "C"
 
 //export SKY_JsonEncode_Handle
 func SKY_JsonEncode_Handle(handle C.Handle, json_string *C.GoString_) uint32 {
@@ -278,7 +279,7 @@ func SKY_api_Handle_GetWalletLastSeed(handle C.MetaWallet__Handle,
 }
 
 //export SKY_api_Handle_GetBuildInfoData
-func SKY_api_Handle_GetBuildInfoData(handle C.BuildInfo_Handle,
+func SKY_api_Handle_GetBuildInfoData(handle C.BuildInfo__Handle,
 	version *C.GoString_, commit *C.GoString_, branch *C.GoString_) uint32 {
 	bi, ok := lookupBuildInfoHandle(handle)
 	if ok {
